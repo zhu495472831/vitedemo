@@ -2,3 +2,9 @@ node_modules
 dist
 /public
 .vscode
+node_modules
+*.md
+.idea
+.husky
+.local
+/bin

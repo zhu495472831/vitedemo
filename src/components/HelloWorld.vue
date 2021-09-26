@@ -1,14 +1,21 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-
   defineProps<{ msg: string }>()
   const count = ref(0)
+  const value1 = ref('')
+
+  const xhr = new XMLHttpRequest()
+  xhr.open('get', '/api/get', true)
+  xhr.addEventListener('load', () => {
+    console.log(xhr.responseText)
+  })
+  xhr.send()
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
-  <p>
+  <p class="flex">
     Recommended IDE setup:
     <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
     +
@@ -28,11 +35,15 @@
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+  <div>
+    <a-date-picker v-model:value="value1" />
+  </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
   a {
     color: #42b983;
+    font-size: @font-size;
   }
 
   label {

@@ -20,12 +20,14 @@
     "test:coverage": "jest --coverage",
     "test:e2e": "start-server-and-test dev http-get://localhost:3000 cypress",
     "cypress": "cypress run",
-    "release": "standard-version"
+    "release": "standard-version",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
     "ant-design-vue": "^2.2.7",
     "mockjs": "^1.1.0",
     "vue": "^3.2.6",
+    "vue-i18n": "^9.2.0-beta.6",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
   },

@@ -1,21 +1,43 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client"],
+    "baseUrl": ".", // 解析非相对模块名的基准目录
+    "target": "esnext", // ECMAScript目标版本
+    "useDefineForClassFields": true, // 使用defineProperty添加类字段
+    "module": "esnext", // 模块系统
+    "moduleResolution": "node", // 模块处理方案
+    "strict": true, // 启用严格类型检查
+    "jsx": "preserve", // 保留tsx中对jsx的支持
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true, // 生成.map文件
+    "resolveJsonModule": true, // 允许从json文件中导入，导出类型
+    "esModuleInterop": true, // 兼容没有default导出的模块
+    "lib": ["esnext", "dom"], // 编译需要使用的库文件
+    "types": ["vite/client", "@types/jest", "cypress"], // 要包含的类声明文件
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "typeRoots": ["./node_modules/@types/", "./types"], // 声明文件目录
+    "noImplicitAny": false,
+    "skipLibCheck": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"] // 别名
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules"]
+  // 匹配文件列表
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "vite.config.ts",
+    "mock/**/*.ts",
+    "tests/**/*.ts",
+    "cypress/**/*.ts"
+  ],
+  // 排除文件列表
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }
