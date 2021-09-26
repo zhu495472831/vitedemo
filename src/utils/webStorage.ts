@@ -55,19 +55,19 @@ function decode(value: string) {
     case prefixValueType(ValueType.DATE):
       return new Date(source)
 
-    case '__q_expr':
+    case prefixValueType(ValueType.EXPR):
       return new RegExp(source)
 
-    case '__q_numb':
+    case prefixValueType(ValueType.NUMB):
       return Number(source)
 
-    case '__q_bool':
+    case prefixValueType(ValueType.BOOL):
       return Boolean(source === '1')
 
-    case '__q_strn':
+    case prefixValueType(ValueType.STRN):
       return '' + source
 
-    case '__q_objt':
+    case prefixValueType(ValueType.OBJT):
       return JSON.parse(source)
 
     default:
